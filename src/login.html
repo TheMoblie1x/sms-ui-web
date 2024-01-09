@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sarabun"
+      rel="stylesheet"
+    />
+
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading1">Survey Management System</h1>
+
+      <h1 class="heading2">Log in</h1>
+      <form>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            class="password-input"
+            placeholder="Enter your password"
+            required
+          />
+          <img
+            id="eye-icon"
+            class="eye-icon"
+            src="eye.svg" 
+            alt="Toggle Password"
+            onclick="togglePassword()"
+          />
+        </div>
+        
+        
+
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="login-button">Log in</button>
+
+        <div class="sign-up">
+          <p>Haven’t got an account? <a href="#">Sign up</a></p>
+        </div>
+
+        <div class="social-login">
+          <p>Or sign in with:</p>
+          <div class="social-icons">
+            <div class="icon-box">
+              <a href="https://www.google.com" >
+                <img src="google.svg" alt="Google" />
+              </a>
+            </div>
+
+            <div class="icon-box">
+              <a href="https://www.facebook.com">
+                <img src="fb.svg" alt="Facebook" />
+              </a>
+            </div>
+            <div class="icon-box">
+              <a href="https://www.apple.com">
+                <img src="apple.svg" alt="Apple" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-container">
+          <button type="button" class="login-btn">Log in</button>
+          <button type="button" class="signup-button">Sign Up</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="login.js"></script>
+
+  </body>
+</html>

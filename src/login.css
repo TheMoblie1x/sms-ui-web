@@ -1,0 +1,173 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ebf7fb;
+  font-family: "Sarabun";
+}
+
+.container {
+  padding: 20px;
+  width: 398px;
+}
+
+.heading1 {
+  text-align: left;
+  width: 500px;
+  height: 52px;
+  color: #333333;
+}
+
+.heading2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+  color: #333333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #a4a4aa;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.login-button {
+  background-color: #1b3360;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  height: 48px;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.sign-up {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.social-icons {
+  display: flex;
+  border: 1px;
+}
+
+.social-icons img {
+  width: 25px;
+  margin: 0 5px;
+}
+
+#email {
+  border-radius: 16px;
+  border: 1px;
+  height: 28px;
+
+}
+
+#password {
+  border-radius: 16px;
+  border: 1px;
+  height: 28px;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 400px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: #d9f7ff;
+}
+
+.signup-button,
+.login-btn {
+  flex: 1;
+  margin: 0 5px;
+  width: 214px;
+  height: 44px;
+  padding: 11px 41px;
+  border-radius: 8px;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #29a1c0;
+  color: #fff;
+  padding: 11px, 41px, 11px, 41px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.signup-button {
+  background-color: #d9f7ff;
+  color: black;
+  margin-top: 10px;
+}
+
+.icon-box {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: 0.5px solid silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+}
+
+.icon-box img {
+  width: 15px;
+  height: 15px;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  padding-right: 30px;
+  flex: 1;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: -25px;
+  margin-top: -12px;
+  cursor: pointer;
+}
