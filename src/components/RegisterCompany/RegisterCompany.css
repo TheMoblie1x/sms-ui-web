@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Sarabun';
+  src: url('./fonts/Sarabun-Thin.ttf') format('truetype');
+}
+
+
+
 body {
-    font-family: "Sarabun";
+    font-family: 'Sarabun';
     background-color: #ebf7fb;
     margin: 0; 
   }
@@ -8,14 +15,15 @@ body {
     width: 399px;
     margin: 50px auto; 
   }
-  
+ 
   .heading {
     text-align: center;
     font-size: 55px;
     color: #333333;
     font-weight: bold;
+    margin-left: -10px;
+    width: 300px;
   }
-  
   .input-container {
     width: 299px;
     margin: 30px auto; 
@@ -34,8 +42,6 @@ body {
   p {
     color: #a4a4aa;
     margin-top: 10px;
-    width: max-content;
-
   }
   
   .input-label {

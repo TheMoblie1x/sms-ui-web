@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Sarabun';
+  src: url('./fonts/Sarabun-Thin.ttf') format('truetype');
+}
+
+
+
 body {
-    font-family: "Sarabun";
+    font-family: 'Sarabun';
     background-color: #ebf7fb;
     margin: 0; 
   }
@@ -14,6 +21,8 @@ body {
     font-size: 55px;
     color: #333333;
     font-weight: bold;
+    margin-left: -10px;
+    width: 420px;
   }
   
   .input-container {
@@ -38,6 +47,10 @@ body {
   
   .input-label {
     color: #a4a4aa;
+    
+
+    
+
   }
   
   .proceed-button {
@@ -57,5 +70,6 @@ body {
   .input-label {
     font-size: 12px;
     margin-left: 0px;
+    margin-bottom: 5px
   }
   

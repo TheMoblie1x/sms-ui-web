@@ -1,14 +1,19 @@
 // AddGroup.js
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './AddGroup.css';
-import addIcon from './group-ico.svg'; 
-import plusIcon from './fi-rr-plus.svg'; 
-
-
-
+import addIcon from './group-ico.svg';
+import plusIcon from './fi-rr-plus.svg';
 
 const AddGroup = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handlePlusIconClick = () => {
+    console.log('Plus icon clicked!');
+    
+    navigate('/register-group');
+  };
+
   return (
     <div className="mainContainer">
       <h2 id="Usernames">Logged in As- Username (Admin)</h2>
@@ -19,7 +24,7 @@ const AddGroup = () => {
         <div className="thirdContainer"></div>
 
         <div className="containerGroup">
-          <div className="rectangle-box">
+          <div className="rectangle-box" onClick={handlePlusIconClick}>
             <img id="addIcon" src={plusIcon} alt="add" />
           </div>
           <div className="rectangle-box">

@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import eyeIcon from './eye.svg';
 import googleIcon from './google.svg';
 import fbIcon from './fb.svg';
 import appleIcon from './apple.svg';
 
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLogin = () => {
+    // login logic here
+ 
+    const isLoggedIn = true;
+
+    if (isLoggedIn) {
+      navigate('/add-company');
+    } else {
+      alert('Invalid credentials. Please try again.');
+    }
   };
 
   return (
@@ -40,15 +53,15 @@ const Login = () => {
         </div>
 
         <div className="forgot-password">
-          <a href=" ">Forgot password?</a>
+          <a href="/">Forgot password?</a>
         </div>
 
-        <button type="submit" className="login-button">
+        <button type="button" className="login-button" onClick={handleLogin}>
           Log in
         </button>
 
         <div className="sign-up">
-          <p>Haven’t got an account? <a href=" ">Sign up</a></p>
+          <p>Haven’t got an account? <a href="/">Sign up</a></p>
         </div>
 
         <div className="social-login">
@@ -62,12 +75,12 @@ const Login = () => {
 
             <div className="icon-box">
               <a href="https://www.facebook.com">
-              <img src={fbIcon} alt="Facebook" />
+                <img src={fbIcon} alt="Facebook" />
               </a>
             </div>
             <div className="icon-box">
               <a href="https://www.apple.com">
-                <img src={appleIcon}  alt="Apple" />
+                <img src={appleIcon} alt="Apple" />
               </a>
             </div>
           </div>
