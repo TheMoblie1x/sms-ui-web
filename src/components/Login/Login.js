@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
@@ -5,23 +6,31 @@ import eyeIcon from './eye.svg';
 import googleIcon from './google.svg';
 import fbIcon from './fb.svg';
 import appleIcon from './apple.svg';
+import axios from 'axios'; 
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = () => {
-    // login logic here
- 
-    const isLoggedIn = true;
+  const handleLogin = async () => {
+    try {
+     
+      const response = await axios.post('http://localhost:8080/User', {
+        email: email,
+        password: password,
+      });
 
-    if (isLoggedIn) {
+
+      console.log('Login successful', response.data);
       navigate('/add-company');
-    } else {
+    } catch (error) {
+      console.error('Error during login', error);
       alert('Invalid credentials. Please try again.');
     }
   };
@@ -32,7 +41,14 @@ const Login = () => {
       <h1 className="heading2">Log in</h1>
       <form>
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required />
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
         <label htmlFor="password">Password</label>
         <div className="password-container">
@@ -41,6 +57,8 @@ const Login = () => {
             id="password"
             className="password-input"
             placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
           <img
@@ -61,7 +79,9 @@ const Login = () => {
         </button>
 
         <div className="sign-up">
-          <p>Haven’t got an account? <a href="/">Sign up</a></p>
+          <p>
+            Haven’t got an account? <a href="/">Sign up</a>
+          </p>
         </div>
 
         <div className="social-login">
