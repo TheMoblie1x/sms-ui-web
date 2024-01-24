@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #ebf7fb;
+    background-color: #86D2EC;
     font-family: 'Sarabun';
   }
   
@@ -98,6 +98,7 @@ body {
     border-radius: 16px;
     border: 1px;
     height: 28px;
+    width: 385px;
   
   }
   
