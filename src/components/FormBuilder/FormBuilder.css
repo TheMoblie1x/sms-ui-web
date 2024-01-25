@@ -1,0 +1,238 @@
+@font-face {
+  font-family: "Sarabun";
+  src: url("./fonts/Sarabun-Thin.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Sarabun";
+  background-color: #86d2ec;
+}
+
+.top-buttons {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  margin-top: -30px;
+  margin-right: -30px;
+}
+
+#publish-buttons,
+#save-buttons {
+  background-color: #1b3360;
+  color: white;
+  width: 196px;
+  height: 51px;
+  top: 13px;
+  padding: 0 24px;
+  border-radius: 32px;
+}
+
+#publish-buttons {
+  background-color: #1b3360;
+  margin-right: 10px;
+}
+
+.bottom-navbar {
+  display: flex;
+  flex-direction: row;
+  background-color: #b4dfee;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.bottom-navbar a {
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  text-align: center;
+  flex: 1;
+}
+
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 1202px;
+  height: 804px;
+  border-radius: 12px;
+  margin-top: 140px;
+  /* background-color: red; */
+}
+
+.inner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c0cfdd;
+  padding: 10px;
+  width: 803px;
+  height: 774px;
+  border-radius: 12px;
+  margin-top: 80px;
+  border: 1px black solid;
+}
+
+.most-inner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #d9d9d9;
+  padding: 10px;
+  width: 703px;
+  height: 774px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 1px black solid;
+}
+
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: #d9d9d9; */
+    background-color: #d9d9d9;
+  padding: 10px;
+  width: 603px;
+  height: 774px;
+
+  margin-top: 20px;
+ 
+}
+
+
+
+
+h1 {
+  text-align: center;
+}
+
+.title-content {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.form-title h2,
+.form-title h4 {
+  margin: 0;
+  
+}
+
+.form-title h4 {
+  margin-left: 300px;
+}
+
+.form-title hr {
+  margin: 0;
+  border-color: white;
+}
+
+
+#formDescription , #additionalField{
+    background-color:  #d9d9d9;
+   margin-top: 10px;
+   width: 580px;
+    height: 80px;
+    font-family: Sarabun;
+    border: #000000 0.5px inset;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+#formTitle{
+  background-color: #d9d9d9;
+  height: 30px;
+  border: solid 1px rgb(84, 88, 84);
+  text-align: center;
+
+  
+}
+
+
+select{
+  margin: 10px;
+  background-color: #c0cfdd;
+  color: #1b3360;
+  border-radius: 4px;
+}
+
+#addOption {
+  margin: 10px;
+  background-color: #c0cfdd;
+  color: #1b3360;
+  border-radius: 4px;
+}
+
+ #removeOption{
+  margin-bottom: 10px;
+  background-color: #c0cfdd;
+  color: #1b3360;
+  border-radius: 4px;
+}
+
+
+#questionCountDropdown{
+
+  background-color: #c0cfdd;
+  color: #1b3360;
+  border-radius: 4px;
+}
+
+input{
+  background-color: #c0cfdd;
+  border: #000000 1px solid;
+  border-radius: 4px;
+  width: 580px;
+
+
+}
+
+
+
+.Question-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative; 
+  width: 600px;
+}
+
+.icon-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  height: 10px;
+}
+
+
+#move-icon {
+  height: 12px; 
+}
+
+#question-Type{
+  font-family: "Sarabun";
+}
+
+
+.new-option-input {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  width: 5px;
+}

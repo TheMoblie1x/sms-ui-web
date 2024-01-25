@@ -1,12 +1,12 @@
 // AddGroup.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './AddGroup.css';
 import addIcon from './group-ico.svg';
 import plusIcon from './fi-rr-plus.svg';
 
 const AddGroup = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handlePlusIconClick = () => {
     console.log('Plus icon clicked!');
