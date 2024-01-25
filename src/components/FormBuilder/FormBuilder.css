@@ -65,7 +65,6 @@ body {
   height: 804px;
   border-radius: 12px;
   margin-top: 140px;
-  /* background-color: red; */
 }
 
 .inner-container {
@@ -222,6 +221,7 @@ input{
 
 #move-icon {
   height: 12px; 
+  margin-bottom: 5px;
 }
 
 #question-Type{
@@ -234,5 +234,71 @@ input{
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 30px;
-  width: 5px;
+}
+
+
+#question-type:hover::after {
+  content: "Add Question";
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 90px;
+  height: 20px;
+  background-color: #8799b9;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 2;
+  bottom: 125%; 
+  left: 50%;
+  margin-left: -50px; 
+  margin-bottom: -10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 13px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.question-type-and-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.question-type {
+  margin-right: 10px; 
+}
+
+
+.question-title {
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+}
+
+.new-option-input {
+  margin-right: 10px; 
+}
+
+.remove-option-button {
+  margin-left: 10px; 
 }
