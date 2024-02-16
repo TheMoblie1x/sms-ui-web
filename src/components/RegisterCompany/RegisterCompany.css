@@ -40,12 +40,12 @@ body {
   }
   
   p {
-    color: #a4a4aa;
+    color: black;
     margin-top: 10px;
   }
   
   .input-label {
-    color: #a4a4aa;
+    color: black;
   }
   
   .proceed-button {

@@ -1,4 +1,3 @@
-// AddGroup.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddGroup.css';
@@ -10,7 +9,6 @@ const AddGroup = () => {
 
   const handlePlusIconClick = () => {
     console.log('Plus icon clicked!');
-    
     navigate('/register-group');
   };
 

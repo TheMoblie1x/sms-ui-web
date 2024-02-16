@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
@@ -20,18 +19,35 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-     
       const response = await axios.post('http://localhost:8080/User', {
         email: email,
         password: password,
       });
 
-
       console.log('Login successful', response.data);
-      navigate('/add-company');
+      navigate('/company');
     } catch (error) {
       console.error('Error during login', error);
       alert('Invalid credentials. Please try again.');
+    }
+  };
+
+  const validateInputs = () => {
+    if (!email.trim()) {
+      alert('Email cannot be empty');
+      return false;
+    }
+    if (!password.trim()) {
+      alert('Password cannot be empty');
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateInputs()) {
+      handleLogin();
     }
   };
 
@@ -39,7 +55,7 @@ const Login = () => {
     <div className="container">
       <h1 className="heading1">Survey Management System</h1>
       <h1 className="heading2">Log in</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -74,7 +90,7 @@ const Login = () => {
           <a href="/">Forgot password?</a>
         </div>
 
-        <button type="button" className="login-button" onClick={handleLogin}>
+        <button type="submit" className="login-button">
           Log in
         </button>
 

@@ -1,6 +1,7 @@
   import React, { useState } from "react";
   import "./FormBuilder.css";
   import Dictaphone from '../Dictaphone/Dictaphone'; 
+  import InputFileUpload from './InputFileUpload';
 
   import moveIcon from "./move.png";
 
@@ -146,8 +147,11 @@
           
 
           <div className="inner-container">
+            
             <div className="most-inner-container">
-              <div className="form-container">
+              
+              <div className="form-container">              
+              <InputFileUpload />
                 <div className="form-title">
                   <div className="title-content">
                     <input
@@ -200,7 +204,9 @@
           <div className="top-buttons">
             <button id="publish-buttons">Publish</button>
             <button id="save-buttons">Save</button>
+            
           </div>
+          
         </div>
 
         <div className="bottom-navbar">
