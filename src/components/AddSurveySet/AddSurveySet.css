@@ -25,11 +25,11 @@
     margin-right: 70px;
    
   }
-  #textCompany {
+  #textSurveySet {
     margin-left: 170px;
     margin-top: 40px;
   }  
-  .containerCompany {
+  .containerSurveySet {
     display: flex;
     margin-top: 50px;
     margin-left: 70px;
@@ -57,12 +57,12 @@
     transform: scale(1.2);
   }
 
-  #addCompany {
+  #addSurveySet {
     transition: transform 0.3s ease; 
     cursor: pointer; 
   }
   
- #addCompany:hover {
+ #addSurveySet:hover {
     transform: scale(1.2);
   }
   .secondContainer{

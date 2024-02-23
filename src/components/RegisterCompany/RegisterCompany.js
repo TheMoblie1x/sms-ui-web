@@ -11,19 +11,25 @@ const RegisterCompany = () => {
 
   const handleProceedButtonClick = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/Company', {
+      await axios.post('http://localhost:8080/Company', {
         email: companyEmail,
         name: companyName,
         address: companyAddress,
       });
+  
+      const companyIdResponse = await axios.get(`http://localhost:8080/CompanyByEmail?email=${companyEmail}`);
+      const companyId = companyIdResponse.data;
+  
+      console.log('Company registration successful', companyId);
+      navigate('/add-group', { state: { companyId: companyId } });
 
-      console.log('Company registration successful', response.data);
-      navigate('/add-group');
     } catch (error) {
       console.error('Error during company registration', error);
-      alert('Registration failed. Please try again.');
+      // alert('Registration failed. Please try again.');
+      alert('Company already Registered');
     }
   };
+  
 
   return (
     <div className="container">

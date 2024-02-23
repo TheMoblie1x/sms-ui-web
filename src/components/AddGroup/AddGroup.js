@@ -1,15 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './AddGroup.css';
 import addIcon from './group-ico.svg';
 import plusIcon from './fi-rr-plus.svg';
 
 const AddGroup = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const companyId = location.state && location.state.companyId;
+  console.log("company id is "+companyId);
 
   const handlePlusIconClick = () => {
     console.log('Plus icon clicked!');
-    navigate('/register-group');
+    navigate('/register-group', { state: { companyId: companyId } });
   };
 
   return (

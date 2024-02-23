@@ -7,6 +7,9 @@ import fbIcon from './fb.svg';
 import appleIcon from './apple.svg';
 import axios from 'axios'; 
 
+
+
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
@@ -19,18 +22,24 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/User', {
+      const response = await axios.post('http://localhost:8080/login', {
         email: email,
         password: password,
       });
-
-      console.log('Login successful', response.data);
-      navigate('/company');
+  
+     
+      if (response.status === 200) {
+         console.log('Login successful', response.data);
+        navigate('/company');
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
     } catch (error) {
       console.error('Error during login', error);
       alert('Invalid credentials. Please try again.');
     }
   };
+  
 
   const validateInputs = () => {
     if (!email.trim()) {

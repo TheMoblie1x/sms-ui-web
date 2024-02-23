@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import './RegisterGroup.css';
 import axios from 'axios';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const RegisterGroup = ({ companyId }) => {
+const RegisterGroup = ({ companyId: propCompanyId }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const companyId = propCompanyId || (location.state && location.state.companyId);
+  console.log("company id in Register Group is  " + companyId);
   const [groupEmail, setGroupEmail] = useState('');
   const [groupName, setGroupName] = useState('');
   const [groupAddress, setGroupAddress] = useState('');
 
   const handleProceedButtonClick = async () => {
     try {
-      const response = await axios.post(`http://localhost:8080/company/${companyId}/group`, {
+      const response = await axios.post(`http://localhost:8080/company/${companyId}/Group`, {
         email: groupEmail,
         name: groupName,
         address: groupAddress,
-      }); 
+      });
 
       console.log('Group registration successful', response.data);
-      // Navigate to the next page or perform any desired action upon successful registration
+      navigate('/add-survey-set', { state: { groupName } }); // Pass groupName as state
     } catch (error) {
       console.error('Error during group registration', error);
       alert('Registration failed. Please try again.');
+      navigate('/add-survey-set'); 
     }
   };
 

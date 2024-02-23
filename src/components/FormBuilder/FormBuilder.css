@@ -19,19 +19,15 @@ body {
 }
 
 #publish-buttons,
-#save-buttons {
+#save-buttons,#logout-buttons {
   background-color: #1b3360;
   color: white;
-  width: 196px;
+  width: 140px;
   height: 51px;
   top: 13px;
-  padding: 0 24px;
+  padding: 10 24px;
   border-radius: 32px;
-}
-
-#publish-buttons {
-  background-color: #1b3360;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .bottom-navbar {
@@ -101,21 +97,27 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   /* background-color: #d9d9d9; */
-    background-color: #d9d9d9;
+  background-color: #d9d9d9;
   padding: 10px;
   width: 603px;
   height: 774px;
 
   margin-top: 20px;
- 
 }
 
-
-
-
-h1 {
+#heading-form-builder {
+  font-weight: bold;
   text-align: center;
+  color: #000; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  margin-top: 20px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+  
 }
+
+
+
 
 .title-content {
   display: flex;
@@ -127,7 +129,6 @@ h1 {
 .form-title h2,
 .form-title h4 {
   margin: 0;
-  
 }
 
 .form-title h4 {
@@ -139,30 +140,31 @@ h1 {
   border-color: white;
 }
 
-
-#formDescription , #additionalField{
-    background-color:  #d9d9d9;
-   margin-top: 10px;
-   width: 580px;
-    height: 80px;
-    font-family: Sarabun;
-    border: #000000 0.5px inset;
-    padding: 10px;
-    border-radius: 10px;
+#formDescription,
+#additionalField {
+  background-color: #d9d9d9;
+  margin-top: 10px;
+  width: 580px;
+  height: 56;
+  max-height: 100px;
+  min-height: 23px;
+  max-width: 580px;
+  min-width: 580px;
+  font-family: Sarabun;
+  border: #000000 0.5px inset;
+  padding: 10px;
+  border-radius: 10px;
 
 }
 
-#formTitle{
+#formTitle {
   background-color: #d9d9d9;
   height: 30px;
   border: solid 1px rgb(84, 88, 84);
   text-align: center;
-
-  
 }
 
-
-select{
+select {
   margin: 10px;
   background-color: #c0cfdd;
   color: #1b3360;
@@ -176,38 +178,32 @@ select{
   border-radius: 4px;
 }
 
- #removeOption{
+#removeOption {
   margin-bottom: 10px;
   background-color: #c0cfdd;
   color: #1b3360;
   border-radius: 4px;
 }
 
-
-#questionCountDropdown{
-
+#questionCountDropdown {
   background-color: #c0cfdd;
   color: #1b3360;
   border-radius: 4px;
 }
 
-input{
+input {
   background-color: #c0cfdd;
   border: #000000 1px solid;
   border-radius: 4px;
   width: 580px;
-
-
 }
-
-
 
 .Question-card {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  position: relative; 
-  width: 600px;
+  position: relative;
+  width: 569px;
 }
 
 .icon-container {
@@ -219,16 +215,14 @@ input{
   height: 10px;
 }
 
-
 #move-icon {
-  height: 12px; 
+  height: 12px;
   margin-bottom: 5px;
 }
 
-#question-Type{
+#question-Type {
   font-family: "Sarabun";
 }
-
 
 .new-option-input {
   margin-top: 5px;
@@ -236,7 +230,6 @@ input{
   border: 1px solid #ccc;
   border-radius: 30px;
 }
-
 
 #question-type:hover::after {
   content: "Add Question";
@@ -263,9 +256,9 @@ input{
   border-radius: 3px;
   position: absolute;
   z-index: 2;
-  bottom: 125%; 
+  bottom: 125%;
   left: 50%;
-  margin-left: -50px; 
+  margin-left: -50px;
   margin-bottom: -10px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -282,9 +275,9 @@ input{
 }
 
 .question-type {
-  margin-right: 10px; 
+  margin-right: 10px;
+  margin-bottom: 33px;
 }
-
 
 .question-title {
   margin-right: 10px;
@@ -297,9 +290,33 @@ input{
 }
 
 .new-option-input {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .remove-option-button {
-  margin-left: 10px; 
+  margin-left: 10px;
+}
+
+.question-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 610px;
+  height: 1800px;
+}
+
+
+.question-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.question-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px; 
+}
+
+.question-container::-webkit-scrollbar-thumb {
+  background-color: #c0cfdd; 
+  border-radius: 6px;
 }
