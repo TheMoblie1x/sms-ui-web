@@ -18,18 +18,19 @@ const RegisterSurveySet = () => {
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
     
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  };
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+};
+
+console.log(getCurrentTimestamp());
+
   
   const handleProceedButtonClick = async () => {
     try {
       const currentTimestamp = getCurrentTimestamp();
-      // const currentTimestamp = '2024-02-21 14:17:32';
-      console.log("time is "+ currentTimestamp);
       const response = await axios.post("http://localhost:8080/SurveySet", {
         name: surveySetName,
         groupName: groupName,
-        creation_date: currentTimestamp,
+        creationDate: currentTimestamp,
       });
 
       console.log("SurveySet registration successful", response.data);
