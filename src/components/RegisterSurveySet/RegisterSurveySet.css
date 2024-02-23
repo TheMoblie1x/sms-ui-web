@@ -15,16 +15,15 @@ body {
     width: 399px;
     margin: 50px auto; 
   }
-  
+ 
   .heading {
     text-align: center;
     font-size: 55px;
     color: #333333;
     font-weight: bold;
     margin-left: -10px;
-    width: 420px;
+    width: 442px;
   }
-  
   .input-container {
     width: 299px;
     margin: 30px auto; 
@@ -47,10 +46,6 @@ body {
   
   .input-label {
     color: black;
-    
-
-    
-
   }
   
   .proceed-button {
@@ -70,6 +65,5 @@ body {
   .input-label {
     font-size: 12px;
     margin-left: 0px;
-    margin-bottom: 5px
   }
   
