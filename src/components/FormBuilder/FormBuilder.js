@@ -4,6 +4,7 @@ import "./FormBuilder.css";
 import Dictaphone from "../Dictaphone/Dictaphone";
 import InputFileUpload from "./InputFileUpload";
 import Box from "./Box";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 import moveIcon from "./move.png";
@@ -31,6 +32,7 @@ const FormBuilder = () => {
   const handleFormDescriptionChange = (e) => {
     setFormDescription(e.target.value);
   };
+
   const handleQuestionCountChange = (e) => {
     const count = parseInt(e.target.value, 10);
     setQuestionCount(count);
@@ -40,7 +42,7 @@ const FormBuilder = () => {
         ...questions,
         ...Array.from({ length: count - questions.length }, (_, index) => ({
           type: "text",
-          placeholder: `Question ${questions.length + index + 1} Title`,
+          title: "", 
           options: [],
         })),
       ];
@@ -81,6 +83,26 @@ const FormBuilder = () => {
     const newQuestions = [...questions];
     newQuestions[index].options.splice(optionIndex, 1);
     setQuestions(newQuestions);
+  };
+
+  const handlePublishButtonClick = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/FormData', {
+        formTitle: formTitle,
+        formDescription: formDescription,
+        questionCount: questionCount,
+        questions: questions
+      });
+
+      console.log("form title is "+formTitle); 
+      console.log("form Description is "+formDescription);  
+      console.log("questionCount is "+questionCount);  
+      console.log("questions is", JSON.stringify(questions));
+
+      console.log('Form data saved successfully', response.data);
+    } catch (error) {
+      console.error('Error saving form data', error);
+    }
   };
 
   const questionElements = questions.map((question, index) => (
@@ -213,7 +235,7 @@ const FormBuilder = () => {
         </div>
         <InputFileUpload />
         <div className="top-buttons">
-          <Button id="publish-buttons">Publish</Button>
+          <Button id="publish-buttons" onClick={handlePublishButtonClick}>Publish</Button>
           <Button id="save-buttons">Save</Button>
           <Button id="logout-buttons" onClick={handleLogout}>
             Logout

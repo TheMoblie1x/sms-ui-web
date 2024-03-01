@@ -13,6 +13,7 @@ import RegisterSurveySet from './components/RegisterSurveySet/RegisterSurveySet'
 const App = () => {
   return (
     <Routes>
+      <Route path="/" element={<FormBuilder />} />
       <Route path="/" element={<Login />} />
       <Route path="/company" element={<AddCompany />} />
       <Route path="/register-company" element={<RegisterCompany />} />
