@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import "./FormBuilder.css";
+import ColorTabs from"./Tabs";
 import Dictaphone from "../Dictaphone/Dictaphone";
 import InputFileUpload from "./InputFileUpload";
-import Box from "./Box";
+import GenerateAi from "./Box";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 import moveIcon from "./move.png";
@@ -31,6 +33,7 @@ const FormBuilder = () => {
   const handleFormDescriptionChange = (e) => {
     setFormDescription(e.target.value);
   };
+
   const handleQuestionCountChange = (e) => {
     const count = parseInt(e.target.value, 10);
     setQuestionCount(count);
@@ -40,7 +43,7 @@ const FormBuilder = () => {
         ...questions,
         ...Array.from({ length: count - questions.length }, (_, index) => ({
           type: "text",
-          placeholder: `Question ${questions.length + index + 1} Title`,
+          title: "", 
           options: [],
         })),
       ];
@@ -83,6 +86,41 @@ const FormBuilder = () => {
     setQuestions(newQuestions);
   };
 
+  const handlePublishButtonClick = async () => {
+    try {
+      const formattedQuestions = questions.map((question, index) => ({
+        questionTitle: question.title,
+        questionType: question.type,
+        options: question.type !== "text" ? question.options.join(",") : null,
+        questionNumber: index + 1, 
+      }));
+  
+      const formData = {
+        formTitle: formTitle,
+        formDescription: formDescription,
+        questionCount: questionCount,
+        questions: formattedQuestions,
+      };
+  
+      formData.publishedAt = new Date().toISOString();
+  
+      const response = await axios.post(
+        "http://localhost:8080/FormData",
+        formData
+      );
+  
+      console.log("Form data saved successfully", response.data);
+      alert("Form data saved successfully");
+      
+    } catch (error) {
+      console.error("Error saving form data", error);
+    }
+  };
+  
+  
+  
+  
+
   const questionElements = questions.map((question, index) => (
     <div key={index} className="Question-card">
       <div className="icon-container">
@@ -95,6 +133,8 @@ const FormBuilder = () => {
               handleQuestionTitleChange(null, index, transcript)
             }
           />
+              
+
 
           <input
             type="text"
@@ -150,14 +190,23 @@ const FormBuilder = () => {
   ));
 
   return (
+    
     <div>
+      h1
       <div className="main-container">
+      
+      
         <h1 id="heading-form-builder"> Form Builder</h1>
+       
 
         <div className="inner-container">
+       
           <div className="most-inner-container">
+          
             <div className="form-container">
-              <Box />
+            <ColorTabs />
+              <GenerateAi />
+
               <div className="form-title">
                 <div className="title-content">
                   <input
@@ -213,7 +262,7 @@ const FormBuilder = () => {
         </div>
         <InputFileUpload />
         <div className="top-buttons">
-          <Button id="publish-buttons">Publish</Button>
+          <Button id="publish-buttons" onClick={handlePublishButtonClick}>Publish</Button>
           <Button id="save-buttons">Save</Button>
           <Button id="logout-buttons" onClick={handleLogout}>
             Logout

@@ -9,10 +9,12 @@ import RegisterGroup from './components/RegisterGroup/RegisterGroup';
 import FormBuilder from './components/FormBuilder/FormBuilder';
 import AddSurveySet from './components/AddSurveySet/AddSurveySet';
 import RegisterSurveySet from './components/RegisterSurveySet/RegisterSurveySet'; 
+// import AllForm  from './components/AllForm/AllForm'; 
 
 const App = () => {
   return (
     <Routes>
+      {/* <Route path="/" element={<AllForm  />} /> */}
       <Route path="/" element={<Login />} />
       <Route path="/company" element={<AddCompany />} />
       <Route path="/register-company" element={<RegisterCompany />} />

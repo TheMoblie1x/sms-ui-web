@@ -71,9 +71,9 @@ body {
   background-color: #c0cfdd;
   padding: 10px;
   width: 803px;
-  height: 774px;
+  height: 962px;
   border-radius: 12px;
-  margin-top: 80px;
+  margin-top: 179px;
   border: 1px black solid;
 }
 
@@ -85,12 +85,11 @@ body {
   background-color: #d9d9d9;
   padding: 10px;
   width: 703px;
-  height: 774px;
+  height: 881px;
   border-radius: 12px;
-  margin-top: 20px;
+  margin-top: -11px;
   border: 1px black solid;
 }
-
 .form-container {
   position: absolute;
   top: 50%;
@@ -102,7 +101,7 @@ body {
   width: 603px;
   height: 774px;
 
-  margin-top: 20px;
+  margin-top: -22px;
 }
 
 #heading-form-builder {
