@@ -1,70 +1,44 @@
-@font-face {
-  font-family: 'Sarabun';
-  src: url('./fonts/Sarabun-Thin.ttf') format('truetype');
+.containerCompany {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-right: 70px; 
 }
 
-* {
-    margin: 0;
-  }
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: centers;
-    background-color: #86D2EC; 
-    font-family: 'Sarabun';
-   
-  }  
-  .mainContainer {
-    background-color: #86D2EC;
-    width: 100%;
-    height: 754px;
-  }
-  #Usernames {
-    text-align: right;
-    margin-top: 100px;
-    margin-right: 70px;
-   
-  }
-  #textCompany {
-    margin-left: 170px;
-    margin-top: 40px;
-  }  
-  .containerCompany {
-    display: flex;
-    margin-top: 50px;
-    margin-left: 70px;
-  }
-  
-  .rectangle-box {
-    width: 212px;
-    height: 235px;
-    margin-left: 100px;
-    background-color: #d9d9d9;
-    text-align: center;
-  }
-  .rectangle-box img {
-    margin-top: 40%;
-  }
-  .rectangle-box p {
-    margin-top: 30px;
-  }  
-  #addIcon {
-    transition: transform 0.3s ease; 
-    cursor: pointer; 
-  }
-  
-  #addIcon:hover {
-    transform: scale(1.2);
-  }
+.rectangle-box {
+  width: calc(25% - 20px); 
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d9d9d9;
+  text-align: center;
+}
 
-  #addCompany {
-    transition: transform 0.3s ease; 
-    cursor: pointer; 
-  }
-  
- #addCompany:hover {
-    transform: scale(1.2);
-  }
-  .secondContainer{
-    margin-right: 70px;
-  }
+.rectangle-box img {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px; 
+}
+
+.rectangle-box p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#addIcon,
+#addCompany {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+#addIcon:hover,
+#addCompany:hover {
+  transform: scale(1.2);
+}
+
+
+#textCompany{
+  margin-left: 190px;
+}

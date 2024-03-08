@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import "./FormBuilder.css";
+import ColorTabs from"./Tabs";
 import Dictaphone from "../Dictaphone/Dictaphone";
 import InputFileUpload from "./InputFileUpload";
-import Box from "./Box";
+import GenerateAi from "./Box";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -87,23 +88,38 @@ const FormBuilder = () => {
 
   const handlePublishButtonClick = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/FormData', {
+      const formattedQuestions = questions.map((question, index) => ({
+        questionTitle: question.title,
+        questionType: question.type,
+        options: question.type !== "text" ? question.options.join(",") : null,
+        questionNumber: index + 1, 
+      }));
+  
+      const formData = {
         formTitle: formTitle,
         formDescription: formDescription,
         questionCount: questionCount,
-        questions: questions
-      });
-
-      console.log("form title is "+formTitle); 
-      console.log("form Description is "+formDescription);  
-      console.log("questionCount is "+questionCount);  
-      console.log("questions is", JSON.stringify(questions));
-
-      console.log('Form data saved successfully', response.data);
+        questions: formattedQuestions,
+      };
+  
+      formData.publishedAt = new Date().toISOString();
+  
+      const response = await axios.post(
+        "http://localhost:8080/FormData",
+        formData
+      );
+  
+      console.log("Form data saved successfully", response.data);
+      alert("Form data saved successfully");
+      
     } catch (error) {
-      console.error('Error saving form data', error);
+      console.error("Error saving form data", error);
     }
   };
+  
+  
+  
+  
 
   const questionElements = questions.map((question, index) => (
     <div key={index} className="Question-card">
@@ -117,6 +133,8 @@ const FormBuilder = () => {
               handleQuestionTitleChange(null, index, transcript)
             }
           />
+              
+
 
           <input
             type="text"
@@ -172,14 +190,23 @@ const FormBuilder = () => {
   ));
 
   return (
+    
     <div>
+      h1
       <div className="main-container">
+      
+      
         <h1 id="heading-form-builder"> Form Builder</h1>
+       
 
         <div className="inner-container">
+       
           <div className="most-inner-container">
+          
             <div className="form-container">
-              <Box />
+            <ColorTabs />
+              <GenerateAi />
+
               <div className="form-title">
                 <div className="title-content">
                   <input
