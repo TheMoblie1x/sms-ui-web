@@ -1,69 +1,3 @@
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom'; 
-// import './AddCompany.css';
-// import addIcon from './icon/fi-rr-plus.svg';
-// import addUser from './icon/fi-bs-user.svg';
-
-// const AddCompany = () => {
-//   const navigate = useNavigate(); 
-//   const handleAddButtonClick = () => {
-//     console.log('Add button clicked!');
-    
-//     navigate('/register-company');
-//   };
-//   return (
-//     <div className="mainContainer">
-//       <h2 id="Usernames">Logged in As- Username (Admin)</h2>
-//       <div>
-//         <h2 id="textCompany">Companies</h2>
-//       </div>
-//       <div className="secondContainer">
-//         <div className="thirdContainer"></div>
-
-//         <div className="containerCompany">
-//         <div className="rectangle-box" onClick={handleAddButtonClick}>
-//             <img id="addIcon" src={addIcon} alt="add" />
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//         </div>
-//         <div className="containerCompany">
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//           <div className="rectangle-box">
-//             <img id="addCompany" src={addUser} alt="add" />
-//             <p>Company Name</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddCompany;
-
-
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './AddCompany.css';
@@ -77,6 +11,14 @@ const AddCompany = () => {
   useEffect(() => {
     fetchCompanies();
   }, []);
+
+  const handleCompanyClick = (companyId) => {
+    console.log('Company clicked:', companyId);
+    navigate('/add-group', { state: { companyId: companyId } });
+  };
+  
+  
+  
 
   const fetchCompanies = async () => {
     try {
@@ -92,7 +34,6 @@ const AddCompany = () => {
       console.error('Error fetching companies:', error);
     }
   };
-  
 
   const handleAddButtonClick = () => {
     console.log('Add button clicked!');
@@ -111,15 +52,17 @@ const AddCompany = () => {
         <div className="thirdContainer"></div>
 
         <div className="containerCompany">
-          <div className="rectangle-box" onClick={handleAddButtonClick}>
+          <button className="rectangle-box" onClick={handleAddButtonClick}>
             <img id="addIcon" src={addIcon} alt="add" />
-          </div>
+          </button>
           {companies.map((company, index) => (
-            <div className="rectangle-box" key={index}>
-              <img id="addCompany" src={addUser} alt="add" />
-              <p>{company.name}</p>
-            </div>
-          ))}
+  <button className="rectangle-box" key={index} onClick={() => handleCompanyClick(company.companyId)}>
+    <img id="addCompany" src={addUser} alt="add" />
+    <p>Name: {company.name}</p>
+    <p>ID: {company.companyId}</p>
+  </button>
+))}
+
         </div>
       </div>
     </div>

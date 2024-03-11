@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import "./FormBuilder.css";
-import ColorTabs from"./Tabs";
+import ColorTabs from "./Tabs";
 import Dictaphone from "../Dictaphone/Dictaphone";
 import InputFileUpload from "./InputFileUpload";
 import GenerateAi from "./Box";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import moveIcon from "./move.png";
 
 const FormBuilder = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [formTitle, setFormTitle] = useState("");
   const [formDescription, setFormDescription] = useState("");
   const [questionCount, setQuestionCount] = useState(1);
@@ -23,6 +24,7 @@ const FormBuilder = () => {
   const handleLogout = () => {
     navigate("/");
   };
+  const surveySetId = location.state?.surveySetId;
 
   const [optionInputWidth, setOptionInputWidth] = useState(200);
 
@@ -100,6 +102,8 @@ const FormBuilder = () => {
         formDescription: formDescription,
         questionCount: questionCount,
         questions: formattedQuestions,
+        surveySet: surveySetId,
+
       };
   
       formData.publishedAt = new Date().toISOString();
