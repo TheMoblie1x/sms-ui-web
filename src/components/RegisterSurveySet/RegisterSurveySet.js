@@ -5,6 +5,7 @@ import axios from "axios";
 
 const RegisterSurveySet = () => {
   const location = useLocation();
+  const groupId = location.state && location.state.groupId;
   const navigate = useNavigate();
   const groupName = location.state && location.state.groupName;
   const [surveySetName, setSurveySetName] = useState("");
@@ -24,26 +25,34 @@ const RegisterSurveySet = () => {
 console.log(getCurrentTimestamp());
 
   
-  const handleProceedButtonClick = async () => {
-    try {
-      const currentTimestamp = getCurrentTimestamp();
-      const response = await axios.post("http://localhost:8080/SurveySet", {
-        name: surveySetName,
-        groupName: groupName,
-        creationDate: currentTimestamp,
-      });
+const handleProceedButtonClick = async () => {
+  try {
+    const currentTimestamp = getCurrentTimestamp();
+    const response = await axios.post("http://localhost:8080/SurveySet", {
+      name: surveySetName,
+      groupName: groupName,
+      creationDate: currentTimestamp,
+      groupId:groupId,
+    });
 
-      console.log("SurveySet registration successful", response.data);
-      navigate("/form-builder");
-    } catch (error) {
-      console.error("Error during SurveySet registration", error);
-      alert("Registration failed. Please try again.");
+    console.log("SurveySet registration successful", response.data);
 
-    }
-  };
+    const surveySetId = response.data.data; 
+
+    console.log("SurveySet ID:", surveySetId);
+
+    navigate("/add-survey", { state: { surveySetId } });
+  } catch (error) {
+    console.error("Error during SurveySet registration", error);
+    alert("Registration failed. Please try again.");
+  }
+};
+
+console.log("Group Name:", groupName);
+
 
   return (
-    <div className="container">
+    <div className="rss-container">
       <p className="heading">Register Survey Set</p>
 
       <div className="input-container">

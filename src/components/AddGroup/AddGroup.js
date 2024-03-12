@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './AddGroup.css';
@@ -9,7 +8,7 @@ const AddGroup = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const companyId = location.state && location.state.companyId;
-  const [groups, setGroups] = useState([]);
+  const [groupList, setGroupList] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -24,10 +23,10 @@ const AddGroup = () => {
 
         const { data } = responseData;
 
-        if (data === null) {
-          setGroups([]);
+        if (!data || data.length === 0) {
+          setGroupList([]);
         } else {
-          setGroups(data);
+          setGroupList(data);
           setErrorMessage('');
         }
       } catch (error) {
@@ -35,13 +34,17 @@ const AddGroup = () => {
         console.error('Error fetching groups:', error);
       }
     };
-  
-    if (companyId) { 
+
+    if (companyId) {
       fetchGroups();
     }
   }, [companyId]);
-  
 
+  const handleGroupButtonClick = (group) => {
+    navigate('/add-survey-set', { state: { groupId: group.groupId, groupName: group.name } });
+  }
+  
+  
   const handlePlusIconClick = () => {
     console.log('Plus icon clicked!');
     navigate('/register-group', { state: { companyId: companyId } });
@@ -61,11 +64,12 @@ const AddGroup = () => {
             <img id="addIcon" src={plusIcon} alt="add" />
           </div>
           {errorMessage && <p>{errorMessage}</p>}
-          {companyId && !errorMessage && groups.map((group, index) => (
-            <div className="rectangle-box" key={index}>
-              <img id="addIcon" src={addIcon} alt="add" />
-              <p>{group.name}</p>
-            </div>
+          {companyId && !errorMessage && groupList.map((group, index) => (
+           <button className="rectangle-box" key={index} onClick={() => handleGroupButtonClick(group)}>
+           <img id="addIcon" src={addIcon} alt="add" />
+           <p>{group.name}</p>
+           <p>Group ID: {group.groupId}</p>
+         </button>
           ))}
         </div>
       </div>
